@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello GalleryController!{% endblock %}
+{% block body %}
+<link href="{{asset('css/main.css')}}" rel="stylesheet">
+<!-- start banner Area -->
+<section class="about-banner paralax-mf bg-image" style="background-image: url(../img/gallery.jpg); ">
+   <div class="overlay-itro"></div>
+   <div class="container">
+      <div class="row d-flex align-items-center justify-content-center">
+         <div class="about-content col-lg-12">
+            <h1 class="text-white">
+               Gallery
+            </h1>
+            <p class="text-white link-nav">
+               <a href="{{ path('app_home') }}">Home
+               </a>
+               <span class="lnr lnr-arrow-right"></span>
+               <a href="{{ path('app_gallery_index') }}">
+               Gallery</a>
+            </p>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- End banner Area -->
+<!-- Start gallerys Area -->
+<section class="services-area section-gap">
+   <div class="container">
+      <div class="row d-flex justify-content-center">
+         <div class="menu-content  col-lg-7">
+            <div class="title text-center">
+            </div>
+            <div class="title text-center">
+               <h1 class="mb-10">My Photos</h1>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-12 md-12 mt-2 mb-2">
+               <p class="lead">Personal photo galleries have become an important part of preserving and sharing memories with friends and family. With advancements in technology, it has become easier than ever to create and share digital photo galleries.
+                 <br><br>  There are several platforms available that allow users to create their own photo galleries and share them with others. For example, social media sites like Facebook, Instagram, and Pinterest allow users to upload and share their photos with others. These sites are great for sharing memories with friends and family members who are scattered across the world.
+                <br><br>  Another option is cloud storage services like Google Photos, Apple iCloud, and Dropbox, which allow users to store and access their photos from anywhere in the world. These services offer a convenient way to keep all of your photos organized and easily accessible, no matter where you are.
+                <br><br>  In addition to online photo galleries, many people also choose to create physical photo albums or scrapbooks to preserve their memories. These albums can be a fun and creative way to showcase your photos and memories, and they can be displayed in your home or shared with others.
+                <br><br>  No matter how you choose to share your photos, the important thing is to have them organized and easily accessible. Whether you choose to use online platforms or physical albums, your personal photo gallery is a testament to your life and experiences, and it should be cherished and preserved for generations to come.
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         {% for gallery in gallerys %}
+         <div class="col-lg-4 col-md-6">
+            <div class="single-services m-3">
+               <!--<span class="lnr lnr-pie-chart"></span>-->
+               <img src="{{asset('galleryImage/' ~ gallery.image)}}" width="100%" alt="Video Marketing">
+               <h4>{{gallery.title}}</h4>
+               <p>
+                  {{gallery.description}}
+               </p>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+       {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+      <a href="{{path('app_gallery_new') }}" class="btn btn-outline-danger btn-sm m-3"> Upload PHoto</a>
+      {% endif %}
+   </div>
+   </div>
+</section>
+<!-- End gallerys Area -->
+{% endblock %}

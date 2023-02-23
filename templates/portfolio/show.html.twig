@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block body %}
+<link href="{{asset('css/main.css')}}" rel="stylesheet">
+<!-- start banner Area -->
+<section class="about-banner paralax-mf bg-image" style="background-image: url(../img/blog1.jpg); ">
+    <div class="overlay-itro"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Portfolio
+                </h1>
+                <p class="text-white link-nav"><a href="{{path('app_home') }}">Home </a> <span
+                        class="lnr lnr-arrow-right"></span> <a href="{{path('app_portfolio_index') }}"> Portfolio</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start portfolio-area Area -->
+<section class="portfolio-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 md-12">
+                <h3 class="text-center">Portfolio</h3>
+                <p class="lead">Experienced Web Developer specializing in the development and maintenance of dynamic,
+                    user-friendly websites using modern technologies such as HTML, CSS, JavaScript, and various
+                    frameworks. Proficient in creating responsive designs, implementing security measures, and ensuring
+                    optimal performance. Committed to delivering high-quality results and continuously improving skills
+                    through staying up-to-date with industry trends. </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 md-12 mt-4">
+                <img class="image img-fluid" src="{{asset('portfolioImage/' ~  portfolio.image) }}" alt="">
+                <div class="p-inner">
+                    <h4>{{ portfolio.title }}</h4>
+                    <div class="cat">{{ portfolio.description }}</div>
+                     <p class="mt-2 text-primary">{{ portfolio.date ? portfolio.date|date('D Y-m-d H:i:s') : '' }}  <a href="{{ path('app_portfolio_index') }}" class="btn btn-outline-danger btn-sm m-2 float-right">Back Portfolio</a></p>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 md-12">
+            {{ include('portfolio/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

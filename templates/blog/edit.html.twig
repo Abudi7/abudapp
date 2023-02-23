@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Blog{% endblock %}
+
+{% block body %}
+ <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+  <!-- start banner Area -->
+  <section class="about-banner paralax-mf bg-image" style="background-image: url({{asset('../img/blog.jpg')}}); ">
+    <div class="overlay-itro"></div>
+    <div class="container">
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="about-content col-lg-12">
+          <h1 class="text-white">Blog</h1>
+          <p class="text-white link-nav">
+            <a href="{{ path('app_home') }}">Home</a>
+            <span class="lnr lnr-arrow-right"></span>
+            <a href="{{ path('app_blog_index') }}">Blog</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End banner Area -->
+  <div class="container">
+    <div class="row">
+        <div class="col-12 md-12 mt-4">
+            <h1>Edit Blog</h1>
+
+            {{ include('blog/_form.html.twig', {'button_label': 'Update'}) }}
+                <br>
+            <a href="{{ path('app_blog_index') }}" class=" btn btn-outline-secondary btn-sm mb-4">back to Blog</a>
+                
+            {{ include('blog/_delete_form.html.twig') }}
+        </div>
+    </div>
+  </div>
+    
+{% endblock %}

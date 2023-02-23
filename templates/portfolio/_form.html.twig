@@ -1,0 +1,12 @@
+
+<div class="container ">
+  <div class="row">
+    <div class="col-md-9 mb-3">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-outline-primary">{{ button_label|default('Save') }}</button>
+            <a href="{{ path('app_portfolio_index') }}" class="btn btn-outline-secondary btn-md float-right">back</a>
+        {{ form_end(form) }}
+    </div>
+  </div>
+</div>

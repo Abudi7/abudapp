@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+{% block title %}Blog{% endblock %}
+{% block body %}
+<link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+<!-- start banner Area -->
+<section class="about-banner paralax-mf bg-image" style="background-image:  url({{asset('../img/blog.jpg')}}); ">
+   <div class="overlay-itro"></div>
+   <div class="container">
+      <div class="row d-flex align-items-center justify-content-center">
+         <div class="about-content col-lg-12">
+            <h1 class="text-white">Blog</h1>
+            <p class="text-white link-nav">
+               <a href="{{ path('app_home') }}">Home</a>
+               <span class="lnr lnr-arrow-right"></span>
+               <a href="{{ path('app_blog_index') }}">Blog</a>
+            </p>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- End banner Area -->
+<!--/ Section Blog-Single Star /-->
+<section class="blog-wrapper sect-pt4" id="blog">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="post-box">
+               <div class="post-thumb">
+                  <img src="{{ asset('blogImage/' ~ blog.image) }}" class="img-fluid" alt="">
+               </div>
+               <div class="post-meta">
+                  <h1 class="article-title">{{ blog.title }}</h1>
+                  <ul>
+                     <li>
+                        <span class="ion-ios-person"></span>
+                        <a href="#">Abdulrhman Alshalal</a>
+                     </li>
+                     <li>
+                        <span class="ion-pricetag"></span>
+                        <a href="#">{{ blog.category }}</a>
+                     </li>
+                      <li>
+                       {#<span class="ion-chatbox"></span>#}
+                        <span class="ion-ios-clock-outline"></span>
+                        <a href="#">{{ blog.date ? blog.date|date('Y-m-d H:i:s') : '' }}</a>
+                     </li> 
+                  </ul>
+               </div>
+               <div class="article-content">
+                  <p>
+                  {% autoescape %}
+                    {{ blog.description|striptags('<br><strong></strong><div></div>')|raw }}
+                    {% endautoescape %}
+                  </p>
+               </div>
+                   <!--============= Comments =========-->
+
+                 <div class="container">
+                     {% for comment in comments %}
+                           <div class="card" style="background-color: #f4f4f4;" >
+                              <div class="card-body">
+                                 <h5 class="card-title text-danger">{{ comment.name }}</h5>
+                                 <!--<h6 class="card-subtitle mb-2 text-muted">{{ comment.email }}</h6>-->
+                                 <p class="card-text">{{ comment.comment }}</p>
+                              </div>
+                           </div>
+                     {% endfor %}
+                     
+                     <hr>
+
+                     <h2>Add a comment</h2>
+                     {{ form_start(comment_form) }}
+                     {{ form_row(comment_form.name) }}
+                     {{ form_row(comment_form.email) }}
+                     {{ form_row(comment_form.comment) }}
+                     {{ form_rest(comment_form) }}
+                     {{ form_end(comment_form) }}
+                  </div>
+               {# <div class="container">
+                     <form>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label for="comment" style="font-weight: bold;">Put your Comments here :</label>
+                           <textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none;"></textarea> 
+                        </div>
+                        <button type="submit" class="btn btn-outline-danger btn-sm">comment</button>
+                     </form>
+               </div> #}
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+</section>
+
+<!--/ Section Blog-Single End /-->
+<div class="container">
+    <div class="row">
+        <div class="col-2 md-12">
+            <a href="{{ path('app_blog_index') }}" class="btn btn-outline-secondary btn-sm mb-3">back</a>
+        </div>
+        <div class="col-10 md-12">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {{ include('blog/_delete_form.html.twig') }}
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+<script src=" {{asset('js/likes.js ')}}"></script>
+{% endblock %}

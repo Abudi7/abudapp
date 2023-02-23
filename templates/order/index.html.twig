@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderController!
+{% endblock %}
+
+{% block body %}
+	<!-- start banner Area -->
+	<section class="about-banner paralax-mf bg-image" style="background-image: url(../img/baner1.jpeg); ">
+		<div class="overlay-itro"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white">
+						Services
+					</h1>
+					<p class="text-white link-nav">
+						<a href="{{path('app_home')}}">Home
+						</a>
+						<span class="lnr lnr-arrow-right"></span>
+						<a href="{{path('app_service')}}">
+							Services</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+	{% set sum = 0 %}
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 m-4">
+				<table class="table table-striped border-primary">
+					<thead>
+						<tr class="table-primary">
+							<th scope="col">Order Nr.</th>
+							<th scope="col">Service Name</th>
+							<th scope="col">Preis</th>
+							<th scope="col">Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in orders %}
+							{% set sum = sum + order.preis %}
+							<tr>
+								<th>{{ order.ordernumber }}</th>
+								<td>{{ order.name }}</td>
+								<td>{{ order.preis }}</td>
+								<td>{{ order.status }}</td>
+								<td>
+									<div class="dropdown">
+										<a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											{{ order.status }}
+										</a>
+
+										<ul class="dropdown-menu">
+											<li>
+												<a class="dropdown-item " href="{{ path('app_status' ,{id: order.id , status: 'open'}) }}">Open</a>
+											</li>
+											<li>
+												<a class="dropdown-item " href="{{ path('app_status' ,{id: order.id , status: 'done'}) }}">Done</a>
+											</li>
+											<li>
+												<a class="dropdown-item " href="{{ path('app_status' ,{id: order.id , status: 'archiv'}) }}">archiv</a>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						{% endfor %}
+						<tr class="table-primary">
+							<td></td>
+							<td scope="col">
+								<h3>
+									Total</h3>
+							</td>
+							<td>
+								<h3>{{ sum }}
+									Euro
+								</h3>
+							</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}

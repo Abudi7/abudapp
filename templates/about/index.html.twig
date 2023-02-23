@@ -1,0 +1,203 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<link href="{{asset('css/main.css')}}" rel="stylesheet">
+<!-- start banner Area -->
+<section class="about-banner paralax-mf bg-image" style="background-image: url(../img/abud12.jpeg);">
+   <div class="overlay-itro"></div>
+   <div class="container">
+      <div class="row d-flex align-items-center justify-content-center">
+         <div class="about-content col-lg-12">
+            <h1 class="text-white">
+               About Me
+            </h1>
+            <p class="text-white link-nav">
+               <a href="{{path('app_home')}}}">Home
+               </a>
+               <span class="lnr lnr-arrow-right"></span>
+               <a href="{{path('app_about')}}}">
+               About Me</a>
+            </p>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- End banner Area -->
+<!-- Start about Area -->
+<section class="home-about-area section-gap">
+   <div class="container">
+   {% for info in mydaten %}
+   <div class="row align-items-center justify-content-between m-2">
+      <div class="col-lg-6 col-md-6 home-about-left">
+         <img class="img-fluid" src="../img/Antonpaar-about.jpg" alt="">
+      </div>
+      <div class="col-lg-6 col-md-6  home-about-right">
+         <h6>About Me</h6>
+         <h1 class="text-uppercase">{{info.name }} {{info.surname }}</h1>
+         <p>
+            My name is
+            <b class="aras-red">
+            {{info.name }}</b>
+            Al-Shalal S, I am
+            <span>{{info.age}}</span>
+            years old, I was born and raised in Bagdad, Iraq. In 2013, I graduated “Computer Science”, at the
+            <b class="aras-red"><a href="https://ruc.edu.iq/en/">Alrafidain University College</a></b>.
+            Since then, I have worked in my home country in many areas of expertise, including the Royal Jordanian Airlines as a booking agent, I have programmed in c++ language for companies in Sulaimaniyah in northern Iraq, as well as developing
+            and maintaining the IT system for a five-star hotel in Erbil.
+         </p>
+         <p>
+            In 2015 I left Iraq, traveling through east Europe until I reached Austria. Currently I live in a small village close to Leibnitz, where I learn and practice my hobby as a photographer and video creator. Since I came to Austria, my highest priority was
+            to improve my language skills, so I proudly got my B1 German Certificate and B2 English Certificate. For about two years I did some small volunteer jobs including, IT system maintenance in a
+            <b class="aras-red"> <a href="https://www.lagerhaus-gleinstaetten.at/">Lagerhaus in Gleinstätten</a></b>,
+            or helping my Austrian friends to create videos for their social media platforms.
+         </p>
+      </div>
+      <div class="col-lg-12 pt-60">
+         <p>
+            {% autoescape %}
+            {{ info.story | striptags('<br><a></a><b></b>') | raw  }}
+            {% endautoescape %}
+         </p>
+         <!--<a href="#" class="primary-btn text-uppercase">More information</a>-->
+         {% endfor %}
+         <h4 class="pt-30">Skills</h4>
+      </div>
+   </div>
+   <div class="row skillbar-wraps">
+      <div class="col-lg-12 float-left">
+         {% for skill in skills %}
+         <div class="single-skill">
+            <p>
+               {{skill.name}}
+            </p>
+            <div class="progress">
+               <div class="progress-bar bg-danger" role="progressbar" aria-label="Example with label" style="width: {{skill.level}};" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{skill.level}}</div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</section>
+<!-- End section about Area -->
+<!-- Start timeline Area -->
+<section class="timeline pb-120">
+   <div class="text-center">
+      <div class="menu-content pb-70">
+         <div class="title text-center">
+            <h1 class="mb-10">My Qualifications</h1>
+            <p>A short summary of my most important achievements.</p>
+         </div>
+      </div>
+   </div>
+   <ul>
+      <li>
+         <div class="content">
+            <img class="img-fluid mx-auto d-block mb-30" src="../img/car.jpg" alt="">
+            <h4>
+               <time>Paramedic diploma in Austria</time>
+            </h4>
+            <p><b>Session:</b> 2019 - 2020</p>
+            <!--<p><b>Result:</b> 3.78 (In the Scale of 4.00)</p>-->
+         </div>
+      </li>
+      <li>
+         <div class="content">
+            <img class="img-fluid mx-auto d-block mb-30" her="https://www.tugraz.at/home/" src="../img/about/tu logo.png" alt="TU Graz">
+            <h4>
+               <time>English Certificate B2 </time>
+            </h4>
+            <p><b>Session:</b> 2017 - 2018
+            <p>
+         </div>
+      </li>
+      <li>
+         <div class="content">
+            <img class="img-fluid mx-auto d-block mb-30" src="../img/b1.jpg" alt="">
+            <h4>
+               <time>German Certificate B1 </time>
+            </h4>
+            <p><b>Session:</b> 2015-2016</p>
+            <p><b>Result:</b> Good </p>
+         </div>
+      </li>
+      <li>
+         <div class="content">
+            <img class="img-fluid mx-auto d-block mb-30" src="../img/about/ra logo.png" alt="">
+            <h4>
+               <time>Bachelor in Computer Science </time>
+            </h4>
+            <p><b>Session:</b> 2009-2013</p>
+            <p><b>Result:</b> Good </p>
+         </div>
+      </li>
+      <li>
+         <div class="content">
+            <h4>
+               <time>High school graduation certificate</time>
+            </h4>
+            <p><b>Session:</b> 1997-2009</p>
+            <p><b>Result:</b> 82.5 </p>
+         </div>
+      </li>
+   </ul>
+</section>
+<!-- End timeline Area -->
+<section>
+   <div class="container">
+      <div class="row">
+         <div class="col-12 md-12">
+            <div class="title text-center">
+               <h1 class="mb-10"> Interview and Article Feature on My Life</h1>
+            </div>
+            <p>Recently, I was interviewed by a television station and a newspaper wrote an article about my life. The experience was both exciting and nerve-wracking as I was sharing my story with a wider audience. I talked about my journey, my achievements, and my future aspirations. It was an opportunity for me to reflect on my life and appreciate my accomplishments so far. The article in the newspaper provided a comprehensive account of my life, highlighting my background, my inspirations, and my plans for the future. I was proud to see my story being shared with others and hope that it will inspire someone out there to pursue their dreams and never give up.</p>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div class="row">
+         <div class="col-12 md-12">
+            <table class="table table-bordered">
+                 <thead>
+                    <tr class="table-danger">
+                    <th scope="col">NR</th>
+                    <th scope="col">TV Interview</th>
+                    <th scope="col">Newspaper Link</th>
+                    <th scope="col">Chanel</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td></td>
+                    <td><a href="https://www.aljazeera.net/lifestyle/2021/1/2/%D9%85%D9%86-%D8%B9%D8%A7%D9%85%D9%84-%D8%A8%D9%81%D8%B1%D9%86-%D9%81%D9%8A-%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF-%D8%A5%D9%84%D9%89-%D9%85%D8%A8%D8%B1%D9%85%D8%AC-%D8%A8%D8%A7%D9%84%D9%86%D9%85%D8%B3%D8%A7">Article about Abdulrhman in Aljazeera.net</a></td>
+                   <td>Aljazeera TV</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td><a href="https://ms-my.facebook.com/DIJLAHtv/videos/%D8%B9%D8%A8%D8%B1-%D8%A7%D9%84%D8%B3%D9%83%D8%A7%D9%8A%D8%A8-%D9%85%D9%86-%D8%A7%D9%84%D9%86%D9%85%D8%B3%D8%A7-%D9%85%D9%87%D9%86%D8%AF%D8%B3-%D8%A7%D9%84%D9%83%D9%85%D8%A8%D9%8A%D9%88%D8%AA%D8%B1-%D9%88-%D8%A7%D9%84%D9%85%D8%AE%D8%AA%D8%B5-%D8%A8%D8%A7%D9%84%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%A7%D9%84%D8%B4%D9%84%D8%A7%D9%84/639184687731341/">Abdulrhman Alshalal, tech specialist from Austria with Dijlah TV via Skype.</a></td>
+                    <td></td>
+                    <td>Dijlah TV</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td><a href="https://www.facebook.com/DIJLAHtv/videos/%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%88%D9%85%D9%86%D8%B5%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D8%A5%D8%B6%D8%A7%D9%81%D8%A7%D8%AA-%D9%85%D9%86%D8%AA%D8%B8%D8%B1%D8%A9-%D9%81%D9%8A-2023/439915828211699/">Abdulrhman Alshalal discusses AI & communication with Dijlah TV via Skype.</a></td>
+                    <td></td>
+                    <td>Dijlah TV</td>
+                    </tr>
+                     <th scope="row">4</th>
+                    <td><a href="https://www.youtube.com/watch?v=S8o6zFzXIsc">Abdulrhman Alshalal discusses digital begging with Dijlah TV via Skype.</a></td>
+                    <td></td>
+                    <td>Dijlah TV</td>
+                    </tr>
+                     <th scope="row">5</th>
+                    <td><a href="https://www.youtube.com/watch?v=fnkqKTCISjs">Abdulrhman Alshalal  with Fujairah TV via Skype.</a></td>
+                    <td></td>
+                    <td>Fujairah TV</td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</section>
+{% endblock %}

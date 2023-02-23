@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+	<!-- start banner Area -->
+    <section class="about-banner paralax-mf bg-image" style="background-image: url(../img/baner1.jpeg); ">
+        <div class="overlay-itro"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        Services
+                    </h1>
+                    <p class="text-white link-nav"><a href="{{path('app_home') }}">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="{{path('app_service') }}"> Services</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+	<div class="example-wrapper">
+		{{ form(service) }}
+		</div>
+		 <!-- Start fact Area -->
+    <section class="facts-area section-gap" id="facts-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 single-fact">
+                    <h1 class="counter">2536</h1>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="col-lg-3 col-md-6 single-fact">
+                    <h1 class="counter">6784</h1>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="col-lg-3 col-md-6 single-fact">
+                    <h1 class="counter">2239</h1>
+                    <p>Cups of Coffee</p>
+                </div>
+                <div class="col-lg-3 col-md-6 single-fact">
+                    <h1 class="counter">435</h1>
+                    <p>Real Professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end fact Area -->
+	{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+	<!-- start banner Area -->
+	<section class="about-banner paralax-mf bg-image" style="background-image: url(../img/baner1.jpeg); ">
+		<div class="overlay-itro"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white">
+						Services
+					</h1>
+					<p class="text-white link-nav">
+						<a href="{{path('app_home')}}">Home
+						</a>
+						<span class="lnr lnr-arrow-right"></span>
+						<a href="{{path('app_service')}}">
+							Services</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<img src="{{asset('servicesImage/' ~ service.image)}}" class="img-fluid rounded mt-5 " alt="">
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p class="h3 mt-3 text-danger">{{ service.title}}</p>
+                {% autoescape %}
+				<p class="lead mt-3">{{service.aboutservice|striptags('<br>')|raw }}</p>
+                {% endautoescape %}
+                <p class="text-danger">Attention: To book this service, you must go to contact us and then send the type of service and content, we will respond to you as soon as possible. Thank you for your understanding.</p>
+				<small class="text-muted">
+					<span class="ion-ios-clock-outline"></span>
+					{{service.date | date('D-M-Y H:m')}}</small>
+                    
+                  <a href="{{ path('app_service')}}" class="btn btn-outline-primary btn-sm float-right">Back to Service</a>  
+				{# <button type="button" class="btn btn-outline-primary btn-sm float-right">{{service.price}}Book Now
+					<i class="ion-plus"></i>
+				</button> #}
+			</p>
+		</div>
+	</div>
+</div>
+<!-- end fact Area -->{% endblock %}

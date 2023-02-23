@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<link
+   href="{{asset('css/main.css')}}" rel="stylesheet">
+<!-- start banner Area -->
+<section class="about-banner paralax-mf bg-image" style="background-image: url(../img/login.jpg); ">
+   <div class="overlay-itro"></div>
+   <div class="container">
+      <div class="row d-flex align-items-center justify-content-center">
+         <div class="about-content col-lg-12">
+            <h1 class="text-white">
+              Register
+            </h1>
+            <p class="text-white link-nav">
+               <a href="{{ path('app_home') }}">Home
+               </a>
+               <span class="lnr lnr-arrow-right"></span>
+               <a href="{{ path('app_login') }}">
+               Login</a>
+            </p>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- End banner Area -->
+	<div class="container">
+		<div class="row">
+			<div class="col-8 m-4">
+				<div class="example-wrapper">
+					<h1>Create Account</h1>
+					{{ form(registerForm) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endblock %}

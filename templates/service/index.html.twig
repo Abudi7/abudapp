@@ -1,0 +1,174 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<link href="{{asset('css/main.css')}}" rel="stylesheet">
+{% for message in app.flashes('order')%}
+				<div class="alert alert-success" role="alert">
+				<h3>{{ message }}</h3>
+				</div>
+				{% endfor %}
+	<!-- start banner Area -->
+	<section class="about-banner paralax-mf bg-image" style="background-image: url(../img/baner1.jpeg); ">
+		<div class="overlay-itro"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white">
+						Services
+					</h1>
+					<p class="text-white link-nav">
+						<a href="{{path('app_home')}}">Home
+						</a>
+						<span class="lnr lnr-arrow-right"></span>
+						<a href="{{path('app_service')}}">
+							Services</a>
+					</p>
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<span class="lnr lnr-arrow-right"></span>
+						<a href="{{path('app_createService')}}">
+							Create Services</a>
+					{% endif %}
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+	
+    <!-- Start services Area -->
+    <section class="services-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content  col-lg-7">
+				<div class="title text-center">
+				
+				</div>
+                    <div class="title text-center">
+                        <h1 class="mb-10">My Offered Services</h1>
+                        <p>At about this time of year, some months after New Year’s resolutions have been made and kept, or made and neglected.</p>
+                    </div>
+                </div>
+            </div>
+				 <div class="row">
+				 {% for service in services %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-services m-3">
+							<!--<span class="lnr lnr-pie-chart"></span>-->
+							<img src="{{asset('servicesImage/' ~ service.image)}}" width="100%" alt="Video Marketing">
+							<a href="{{ path('app_displayOneService',{id: service.id}) }}">
+								<h4>{{service.title}}</h4>
+							</a>
+							<p>
+								{{service.description}}
+							</p>
+							<div class="container">
+								<div class="row">
+								<div class="col-sm-6 float-lefet">
+										<a href="{{ path('app_displayOneService',{id: service.id}) }}" class="btn btn-outline-danger btn-sm stretched-link" role="button">Read more</a>
+									</div>
+									{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+									<div class="col-sm-5">
+										<a href="{{ path('app_selectOrder',{id: service.id}) }}" class="btn btn-outline-danger btn-sm stretched-link" role="button">Book my Service</a>
+									</div>
+									 
+									<div class="col-sm-3"><button type="button" class="btn btn-dark btn-sm"><a href="{{path('app_delete',{id: service.id})}}"
+                                    style="color:#ffffff;">Delete</a></button></div>
+									 {% endif %}
+									<div class="col-sm-6 float-right">
+										<button type="button" class="btn btn-outline-primary btn-sm">{{service.price}}
+											<i class="ion-plus"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+		</div>
+	</section>
+	<!-- End services Area -->
+	 <!-- Start fact Area -->
+    <section class="facts-area section-gap" id="facts-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 single-fact">
+                    <h1 class="counter">2536</h1>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="col-lg-3 col-md-6 single-fact">
+                    <h1 class="counter">6784</h1>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="col-lg-3 col-md-6 single-fact">
+                    <h1 class="counter">2239</h1>
+                    <p>Cups of Coffee</p>
+                </div>
+                <div class="col-lg-3 col-md-6 single-fact">
+                    <h1 class="counter">435</h1>
+                    <p>Real Professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end fact Area -->
+
+
+	<!-- Start testimonial Area -->
+    <section class="testimonial-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-70 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Client’s Feedback About Me</h1>
+                        <p>Our clients are at the heart of everything we do. Their feedback is a testament to our commitment to delivering exceptional service and high-quality results. Here's what some of our clients have to say about their experience working with us</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="active-testimonial">
+                    <div class="single-testimonial item d-flex flex-row">
+                        <div class="thumb">
+                            <img class="img-fluid" src="../img/ali.png" alt="" style="border-radius: 5px; width:100px; hieght:120px;">
+                        </div>
+                        <div class="desc">
+                            <p>
+                                "I was impressed with the attention to detail and professionalism shown by the team. They exceeded my expectations and I will definitely be using their services again."
+                            </p>
+                            <h4><a href="#"> Ali Majeed</a></h4>
+                            <p>Content creator </p>
+                        </div>
+                    </div>
+                    <div class="single-testimonial item d-flex flex-row">
+                        <div class="thumb">
+                            <img class="img-fluid" src="../img/mahdi.jpg" alt="" style="border-radius: 5px; width:100px; hieght:120px;">
+                        </div>
+                        <div class="desc">
+                            <p>
+                                "The team was responsive, knowledgeable, and a pleasure to work with. I was thrilled with the results and highly recommend their services."
+                            </p>
+                            <h4> <a href="https://www.mahdilaith.com/"> Mahdi Laith</a></h4>
+                            <p>CEO at Hres.agency</p>
+                        </div>
+                    </div>
+					<div class="single-testimonial item d-flex flex-row">
+                        <div class="thumb">
+                            <img class="img-fluid" src="../img/rula.jpg" alt="" style="border-radius: 5px; width:100px; hieght:120px;">
+                        </div>
+                        <div class="desc">
+                            <p>
+                               "From start to finish, the process was seamless and the results were outstanding. I was truly impressed with the level of expertise and care given to my project." 
+                            </p>
+                            <h4><a href="https://www.alsharqiya.com/en/program/details/sabah-alsharqiya"></a> Rula Alazawi</h4>
+                            <p>TV Presenter</p>
+                        </div>
+                    </div>
+					<p class="lead">Abdulrhman Alshalal strive to make every interaction with our clients a positive one. We are proud to have earned the trust and satisfaction of so many, and look forward to the opportunity to serve you. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End testimonial Area -->
+
+{% endblock %}

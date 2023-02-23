@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Abdulrhman</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Abdulrman ALshalal" name="keywords">
+    <meta content="Personal Web Application" name="description">
+
+    <!-- Favicons -->
+    <link href="{{asset('img/icon.png')}}" rel="icon">
+    <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
+    <!-- Bootstrap CSS File -->
+    <link href="{{asset('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="{{asset('https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700')}}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{asset('https://use.fontawesome.com/releases/v5.4.1/css/all.css')}}" />
+    <link href="{{asset('lib/ionicons/css/ionicons.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('https://cdn.linearicons.com/free/1.0.0/icon-font.min.css')}}">
+    <link href="{{asset('lib/animate/animate.css')}}" rel="stylesheet">
+    <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('https://unpkg.com/aos@next/dist/aos.css')}}" />
+
+
+    <!-- Main Stylesheet File -->
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+   {# <link href="{{asset('css/main.css')}}" rel="stylesheet">
+ #}
+</head>
+
+<body id="page-top">
+
+    <!--/ Nav Star /-->
+    <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll" href="#page-top"><img src="{{asset('img/icon.png')}}">
+                <b>Abdulrhman</b>
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll active" href="{{path('app_home')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="{{path('app_about')}}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="{{path('app_service')}}">Services</a>
+                    </li>
+                     {# <li class="nav-item">
+                        <a class="nav-link js-scroll" href="{{path('app_order')}}">Booking</a>
+                    </li> #}
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="{{path('app_portfolio_index')}}">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="{{path('app_gallery_index')}}">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="{{path('app_blog_index')}}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll" href="{{path('app_mail')}}">Contact</a>
+                    </li>
+                </ul>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  <div class=" nav-link js-scroll " >Admin: {{user}}</div>
+                  <a class="nav-link js-scroll" href="{{path('app_logout')}}">Logout</a>
+                 {% endif %}       
+                    
+            </div>
+        </div>
+    </nav>
+    <!--/ Nav End /-->
+
+    {% block body %} 
+    
+    
+    {% endblock %}
+
+
+ {# <!--/ Section Contact-Footer Star /-->
+    <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+        <div class="overlay-mf"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="contact-mf">
+                        <div id="contact" class="box-shadow-full">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="title-box-2">
+                                        <h5 class="title-left">
+                                            Send Message Us
+                                        </h5>
+                                    </div>
+                                    <div>
+                                        <form action="" method="post" role="form" class="contactForm">
+                                            <div id="sendmessage">Your message has been sent. Thank you!</div>
+                                            <div id="errormessage"></div>
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group">
+                                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                                        <div class="validation"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                                        <div class="validation"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                                        <div class="validation"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                                        <div class="validation"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="button button-a button-big button-rouded">Send
+                                                        Message</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="title-box-2 pt-4 pt-md-0">
+                                        <h5 class="title-left">
+                                            Get in Touch
+                                        </h5>
+                                    </div>
+                                    <div class="more-info">
+                                        <p class="lead">
+                                            You can contact me on my social media links below or you can give me a call. Write me a message with inquiries or questions and I'll answer it within 24 hours. </p>
+                                        <ul class="list-ico">
+                                            <li><span class="lnr lnr-map-marker"></span>Quellenweg 3 , 8451 Heimschuh
+                                            </li>
+                                            <li><span class="lnr lnr-phone-handset"></span>+43 6648759370</li>
+                                            <li><span class="lnr lnr-envelope"></span>info@abdulrhman-alshalal.com</li>
+                                        </ul>
+                                    </div>
+                                    <div class="socials">
+                                        <ul>
+                                            <li><a href="https://www.facebook.com/abdulrahman.mohammad.988"><span
+                                                        class="ico-circle"><i class="fab fa-facebook-f "></i></span></a>
+                                            </li>
+                                            <li><a href="https://instagram.com/abudi7.1"><span class="ico-circle"><i
+                                                            class="fab fa-instagram"></i></span></a></li>
+                                            <li><a href="https://mobile.twitter.com/casperking14"><span
+                                                        class="ico-circle"><i class="fab fa-twitter"></i></span></a>
+                                            </li>
+                                            <li><a href="https://www.snapchat.com/add/casper.king17"><span
+                                                        class="ico-circle"><i
+                                                            class="fab fa-snapchat-ghost"></i></span></a></li>
+                                            <li><a href="https://at.linkedin.com/in/abdulrhman-alshalal-556642196"><span
+                                                        class="ico-circle"><i class="fab fa-linkedin-in"></i></span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="map col-md-4">
+                                    <div class="title-box-2 pt-4 pt-md-0">
+                                        <h5 class="title-left">
+                                            Map
+                                        </h5>
+                                    </div>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5466.872488790548!2d15.501513!3d46.756297!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDQ1JzIyLjciTiAxNcKwMzAnMDUuNSJF!5e0!3m2!1sar!2siq!4v1587848736940!5m2!1sar!2siq" frameborder="0"
+                                        allowfullscreen="" aria-hidden="false" tabindex="0" width="100%" height="60%"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--/ Section Contact-footer End /--> #}
+    <!-- start footer Area -->
+    <footer class="bg-footer">
+        <div class="container">
+            <div class="content-footer">
+                <div class="row">
+                    <div class="groub col-md-3">
+                        <h3>About<span>Me</span></h3>
+                        <p>Do you want to be successful in business? Develop a learning mindset and master the most important skills in your field. The more effort you put into improving your skills, the bigger the payoff will be.</p>
+                        {# Welcome to our website! We are a dynamic and driven team dedicated to providing exceptional products and services to our customers. With years of experience and a passion for excellence, we are committed to making a positive impact in the lives of those we serve. Thank you for choosing us and please feel free to reach out if there is anything we can do to assist you. #}
+
+                    </div>
+                    <div class="groub col-md-3">
+                        <h3>Contact<span>Me</span></h3>
+                        <ul class="list-ico">
+                            <li><span class="lnr lnr-map-marker"></span>Quellenweg 3 , 8451 Heimschuh
+                            </li>
+                            <li><span class="lnr lnr-phone-handset"></span>+43 6648759370</li>
+                            <li><span class="lnr lnr-envelope"></span>info@abdulrhman-alshalal.com</li>
+                        </ul>
+                    </div>
+                    <div class="groub col-md-3">
+                        <h3>Follow<span>Me</span></h3>
+                        <div class="social-media">
+                            <ul>
+                                <li ><a href=" https://www.facebook.com/abdulrahman.mohammad.988 "><span><i class=" fab fa-facebook-f "></i></span></a>
+                                </li>
+                                <li ><a href=" https://instagram.com/abudi7.1"><span><i
+                                                class="fab fa-instagram"></i></span></a></li>
+                                <li ><a href=" https://mobile.twitter.com/casperking14 "><span><i
+                                            class=" fab fa-twitter "></i></span></a>
+                                </li>
+                                <li ><a href=" https://www.snapchat.com/add/casper.king17"><span><i
+                                                class="fab fa-snapchat-ghost"></i></span></a></li>
+                                <li ><a href=" https://at.linkedin.com/in/abdulrhman-alshalal-556642196 "><span><i class=" fab fa-linkedin-in "></i></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class=" groub col-md-3 ">
+                        <h3>Site<span>Map</span></h3>
+                        <ul class=" list-munu ">
+                            <li class=" home1 ">
+                                <a href=" {{path('app_home') }}">Home</a>
+                                </li>
+                                <li class=" home1 ">
+                                    <a href=" {{path('app_about') }} ">About</a>
+                                </li>
+                                <li class=" home1 ">
+                                    <a href=" {{path('app_service') }} ">Services</a>
+                                </li>
+                                <li class=" home1 ">
+                                    <a href=" {{path('app_portfolio_index') }} ">Portfolio</a>
+                                </li>
+                                <li class=" home1 ">
+                                    <a href=" {{path('app_blog_index')}} ">Blog</a>
+                                </li>
+                                <li class=" home1 ">
+                                    <a href=" {{path('app_mail') }} ">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <footer>
+                            <div class=" container ">
+                                <div class=" row ">
+                                    <div class=" col-sm-12 ">
+                                        <div class=" copyright-box ">
+                                            <p class=" copyright ">&copy; Copyright <a
+                                                    href=" {{path('app_home')}} "><strong>Abdulrhman</strong></a> . All Rights Reserved
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+    <!-- End footer Area -->
+
+    <a href=" # " class=" back-to-top "><i class=" fa fa-chevron-up "></i></a>
+    <div id=" preloader "></div>
+
+    <!-- JavaScript Libraries -->
+    <script src=" {{asset('lib/jquery/jquery.min.js ')}}"></script>
+    <script src=" {{asset('lib/jquery/jquery-migrate.min.js')}} "></script>
+    <script src=" {{asset('lib/popper/popper.min.js')}} "></script>
+    <script src=" {{asset('lib/bootstrap/js/bootstrap.min.js ')}}"></script>
+    <script src=" {{asset('lib/easing/easing.min.js')}} "></script>
+    <script src=" {{asset('lib/counterup/jquery.waypoints.min.js')}} "></script>
+    <script src=" {{asset('lib/counterup/jquery.counterup.js ')}}"></script>
+    <script src=" {{asset(' lib/owlcarousel/owl.carousel.min.js')}} "></script>
+    <script src=" {{asset('lib/lightbox/js/lightbox.min.js ')}}"></script>
+    <script src=" {{asset('lib/typed/typed.min.js')}}"></script>
+    <script src=" {{asset('https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js')}} ">
+    </script>
+    <script src=" {{asset('https://unpkg.com/aos@next/dist/aos.js')}} "></script>
+
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')}}">
+    <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')}}"></script>
+    <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')}}"></script>
+    <script src="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')}}"></script>
+
+    <!-- Contact Form JavaScript File -->
+    <script src=" {{asset('contactform/contactform.js')}} "></script>
+
+    <!-- Template Main Javascript File -->
+    <script src=" {{asset('js/main-home.js ')}}"></script>
+    
+</body>
+
+</html>

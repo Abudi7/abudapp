@@ -1,0 +1,560 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!--/ Intro Skew Star /-->
+<div id="home" class="intro route bg-image" style="background-image: url(img/intro-bg1.jpg)">
+   <div class="overlay-itro"></div>
+   <div class="intro-content display-table">
+      <div class="table-cell">
+         <div class="container">
+            <p class="display-6 color-d">Hello, I am
+            </p>
+            <h1 class="intro-title mb-4">Abdulrhman Alshalal</h1>
+            <p class="intro-subtitle">
+               <span class="text-slider-items">Backend Developer,Digital Marketing,Graphic Design,Web Development,IT Support</span>
+               <strong class="text-slider"></strong>
+            </p>
+            <p class="pt-3">
+               <a href="{{path('app_about')}}" class="genric-btn primary circle arrow">Learn
+               More<span class="lnr lnr-arrow-right"></span>
+               </a>
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+<!--/ Intro Skew End /-->
+<!--/ Section About  /-->
+<section id="about" class="about-mf sect-pt4 route">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="box-shadow-full">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="row">
+                        {% for info in mydaten %}
+                        <div class="col-sm-6 col-md-5">
+                           <div class="about-img">
+                              <img src="img/abud.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                           </div>
+                        </div>
+                        <div class="col-sm-6 col-md-7">
+                           <div class="about-info">
+                              <p>
+                                 <span class="title-s">Name:
+                                 </span>
+                                 <span>{{info.name}}</span>
+                                 <span>{{info.surname}}</span>
+                              </p>
+                              <p>
+                                 <span class="title-s">Age:
+                                 </span>
+                                 <span>{{info.age}}</span>
+                              </p>
+                              <p>
+                                 <span class="title-s">Profile:
+                                 </span>
+                                 <span>{{info.profile}}</span>
+                              </p>
+                              <p>
+                                 <span class="title-s">Email:
+                                 </span>
+                                 <span>{{info.email}}</span>
+                              </p>
+                              <p>
+                                 <span class="title-s">Phone:
+                                 </span>
+                                 <span>{{info.phone}}</span>
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <p class="fw-bold">Skills</p>
+                     {% for skill in skills %}
+                     <p class="fw-normal align-text-bottom ">{{skill.name}}</p>
+                     <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" aria-label="Example with label" style="width: {{skill.level}};" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{skill.level}}</div>
+                     </div>
+                     {% endfor %}
+                  </div>
+                  <div class="col-md-6">
+                     <div class="about-me pt-4 pt-md-0">
+                        <div class="title-box-2">
+                           <h5 class="title-left">
+                              About me
+                           </h5>
+                        </div>
+                        <p class="lead">
+                           AbdulRhman Al Shalal, a {{info.age}} -year-old computer science graduate from <b> <a href="https://ruc.edu.iq/en/" style="color: brown;"> Alrafidain University College </a></b> in Baghdad, Iraq. With a diverse background in the industry, AbdulRhman has worked as a booking agent for Royal Jordanian Airlines, a C++ programmer for companies in Sulaimaniyah, and even developed and maintained the IT system for a luxurious five-star hotel in Erbil. His wealth of experience and expertise make him a valuable asset in his field.
+                        </p>
+                        <p class="lead">Since 2019, AbdulRhman has been working in Austria as a web developer at the company  <b><a href="https://www.mach-mich-zum-experten.at/de/insights/mein-leben-fing-hier-neu-an/" style="color: brown;">Anton Paar</a></b>, while also volunteering at the Red Cross on weekends since 2021.</p>
+                        <p class="lead"><a href="{{ path('app_about')}}" class="btn-serv genric-btn primary circle arrow"> Read More <span class="lnr lnr-arrow-right"></span></a></p>
+                        {% endfor %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!--/ Section Services Star /-->
+<section id="service" class="services-mf route">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="title-box text-center">
+               <h3 class="title-a" >
+                  Services
+               </h3>
+               <p class="subtitle-a">
+                  "At the heart of our mission lies a commitment to exceptional service. We strive to exceed expectations by offering personalized attention and a dedication to ensuring the complete satisfaction of every customer. Join us on a journey towards effortless and fulfilling experiences."
+               </p>
+               <div class="line-mf"></div>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-4">
+            <div class="service-box">
+               <div class="service-ico">
+                  <span class="ico-circle">
+                  <span class="lnr lnr-camera-video"></span>
+                  </span>
+               </div>
+               <div class="service-content">
+                  <h2 class="s-title">
+                     Video creator
+                  </h2>
+                  <p class="text-sm-start text-center">We deliever high resolution video presets for Instagram, Insta Stories, YouTube or Facebook, video advertising campagnes.
+                  </p>
+                  <p class="pt-3">
+                     <a href="{{ path('app_service')}}" class="btn-serv genric-btn primary circle arrow">Read More<span class="lnr lnr-arrow-right"></span>
+                     </a>
+                  </p>
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="service-box">
+               <div class="service-ico">
+                  <span class="ico-circle">
+                  <span class="lnr lnr-rocket"></span>
+                  </span>
+               </div>
+               <div class="service-content">
+                  <h2 class="s-title">
+                     Graphic Design
+                  </h2>
+                  <p class="s-description text-center" >We help you create a visual identity like logo, advertising material, corporate identity design or social media images.
+                  </p>
+                  <p class="pt-3">
+                     <a href="{{ path('app_service')}}" class="btn-serv genric-btn primary circle arrow">Read More<span class="lnr lnr-arrow-right"></span>
+                     </a>
+                  </p>
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="service-box">
+               <div class="service-ico">
+                  <span class="ico-circle">
+                  <span class="lnr lnr-camera"></span>
+                  </span>
+               </div>
+               <div class="service-content">
+                  <h2 class="s-title">Photography</h2>
+                  <p class="s-description text-center">Portraits, business portfolio, social media, special ocasions photography, I capture real shoots that convey true emotions.
+                  </p>
+                  <p class="pt-3">
+                     <a href="{{ path('app_service')}}" class="btn-serv genric-btn primary circle arrow">Read More<span class="lnr lnr-arrow-right"></span>
+                     </a>
+                  </p>
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="service-box">
+               <div class="service-ico">
+                  <span class="ico-circle">
+                  <span class="lnr lnr-laptop-phone"></span>
+                  </span>
+               </div>
+               <div class="service-content">
+                  <h2 class="s-title">Web Development</h2>
+                  <p class="s-description text-center" >We design user and mobile friendly websites that help you better reach your target audience and increase your sales.
+                  </p>
+                  <p class="pt-3">
+                     <a href="{{ path('app_service')}}" class="btn-serv genric-btn primary circle arrow">Read More<span class="lnr lnr-arrow-right"></span>
+                     </a>
+                  </p>
+                  </p>
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="service-box">
+               <div class="service-ico">
+                  <span class="ico-circle">
+                  <span class="lnr lnr-diamond"></span>
+                  </span>
+               </div>
+               <div class="service-content">
+                  <h2 class="s-title">Brand Design</h2>
+                  <p class="s-description text-center" >Differentiate yourself through unique brand identity elements like: logo design, colour palletes, fonts and tone of voice.
+                  </p>
+                  <p class="pt-3">
+                     <a href="{{ path('app_service')}}" class="btn-serv genric-btn primary circle arrow">Read More<span class="lnr lnr-arrow-right"></span>
+                     </a>
+                  </p>
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="service-box">
+               <div class="service-ico">
+                  <span class="ico-circle">
+                  <span class="lnr lnr-chart-bars"></span>
+                  </span>
+               </div>
+               <div class="service-content">
+                  <h2 class="s-title">Digital Marketing</h2>
+                  <p class="s-description text-center">Our team helps you achieve your online goals by applying the best marketing strategies to reach your target audience.
+                  </p>
+                  <p class="pt-3">
+                     <a href="{{ path('app_service')}}" class="btn-serv genric-btn primary circle arrow">Read More<span class="lnr lnr-arrow-right"></span>
+                     </a>
+                  </p>
+                  </p></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!--/ Section Services End /-->
+<div class="section-counter paralax-mf bg-image" style="background-image: url(img/counters-bg.jpg)">
+   <div class="overlay-mf"></div>
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-3 col-lg-3">
+            <div class="counter-box">
+               <div class="counter-ico"><span class="ico-circle">
+                  <i class="ion-checkmark-round"></i></span>
+               </div>
+               <div class="counter-num">
+                  <p class="counter">120</p>
+                  <span class="counter-text">WORKS COMPLETED</span>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+               <div class="counter-ico"><span class="ico-circle">
+                  <i class="ion-ios-calendar-outline"></i></span>
+               </div>
+               <div class="counter-num">
+                  <p class="counter">7</p>
+                  <span class="counter-text">YEARS OF EXPERIENCE</span>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+               <div class="counter-ico"><span class="ico-circle">
+                  <i class="ion-ios-people"></i></span>
+               </div>
+               <div class="counter-num">
+                  <p class="counter">230</p>
+                  <span class="counter-text">TOTAL CLIENTS</span>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+               <div class="counter-ico"><span class="ico-circle">
+                  <i class="ion-ribbon-a"></i></span>
+               </div>
+               <div class="counter-num">
+                  <p class="counter">70</p>
+                  <span class="counter-text">AWARD WON</span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!--/ Section Portfolio Star /-->
+<section id="work" class="portfolio-mf sect-pt4 route">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="title-box text-center">
+               <h3 class="title-a">Portfolio</h3>
+               <p class="subtitle-a">Welcome to our portfolio page, where we showcase our passion for delivering exceptional results. From graphic design to web development, our team of talented professionals has the expertise to bring your visions to life. Each project is approached with the utmost care and attention to detail, ensuring that our clients receive the best possible outcomes. Browse through our portfolio to see for yourself the level of quality and creativity that we bring to every project. Let's create something amazing together.</p>
+               <div class="line-mf"></div>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-4">
+            <div class="work-box">
+               <a href="img/web.jpg" data-lightbox="gallery-mf">
+                  <div class="work-img">
+                     <img src="img/web.jpg" alt="" class="img-fluid">
+                  </div>
+                  <div class="work-content">
+                     <div class="row">
+                        <div class="col-sm-8">
+                           <h2 class="w-title"><a href="{{path('app_portfolio_index') }}">Websites</a></h2>
+                           <div class="w-more">
+                              <span class="w-ctegory"><a href="{{path('app_portfolio_index') }}">Web</a></span>
+                              /
+                              <span class="w-date">13 Mai.
+                              2020</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="w-like">
+                              <span class="ion-ios-plus-outline"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="work-box">
+               <a href="img/aftereffict-6.mp4" data-lightbox="gallery-mf">
+                  <div class="work-img">
+                     <video controls src="img/aftereffict-6.mp4" class="img-fluid"></video>
+                  </div>
+                  <div class="work-content">
+                     <div class="row">
+                        <div class="col-sm-8">
+                           <h2 class="w-title"><a href="{{path('app_portfolio_index') }}">Video Editing</a></h2>
+                           <div class="w-more">
+                              <span class="w-ctegory"><a href="{{path('app_portfolio_index') }}">After Effect</a></span>
+                              /
+                              <span class="w-date">24 Apr.
+                              2020</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="w-like">
+                              <span class="ion-ios-plus-outline"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="work-box">
+               <a href="img/aftereffict-9.mp4" data-lightbox="gallery-mf">
+                  <div class="work-img">
+                     <video controls src="img/aftereffict-9.mp4" class="img-fluid"></video>
+                  </div>
+                  <div class="work-content">
+                     <div class="row">
+                        <div class="col-sm-8">
+                           <h2 class="w-title"><a href="{{path('app_portfolio_index') }}">Video Editing</a></h2>
+                           <div class="w-more">
+                              <span class="w-ctegory"><a href="{{path('app_portfolio_index') }}">After Effects</span>
+                              /
+                              <span class="w-date">4 Apr.
+                              2020</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="w-like">
+                              <span class="ion-ios-plus-outline"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="work-box">
+               <a href="img/aftereffict-8.mp4" data-lightbox="gallery-mf">
+                  <div class="work-img">
+                     <video controls src="img/aftereffict-8.MP4" class="img-fluid"></video>
+                  </div>
+                  <div class="work-content">
+                     <div class="row">
+                        <div class="col-sm-8">
+                           <h2 class="w-title"><a href="{{path('app_portfolio_index') }}">Corona Promo</a></h2>
+                           <div class="w-more">
+                              <span class="w-ctegory"><a href="{{path('app_portfolio_index') }}">Youtube</a></span>
+                              /
+                              <span class="w-date">28 Mrs.
+                              2020</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="w-like">
+                              <span class="ion-ios-plus-outline"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="work-box">
+               <a href="img/aftereffict-2.mp4" data-lightbox="gallery-mf">
+                  <div class="work-img">
+                     <video controls src="img/aftereffict-2.mp4" class="img-fluid"></video>
+                  </div>
+                  <div class="work-content">
+                     <div class="row">
+                        <div class="col-sm-8">
+                           <h2 class="w-title"><a href="{{path('app_portfolio_index') }}">Digital Profile</a></h2>
+                           <div class="w-more">
+                              <span class="w-ctegory"><a href="{{path('app_portfolio_index') }}">Facebook</a></span>
+                              /
+                              <span class="w-date">6 Apr.
+                              2020</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="w-like">
+                              <span class="ion-ios-plus-outline"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="work-box">
+               <a href="img/aftereffict-3.m4v" data-lightbox="gallery-mf">
+                  <div class="work-img">
+                     <video controls src="img/aftereffict-3.m4v" class="img-fluid"></video>
+                  </div>
+                  <div class="work-content">
+                     <div class="row">
+                        <div class="col-sm-8">
+                           <h2 class="w-title"><a href="{{path('app_portfolio_index') }}">Logo Motion</a></h2>
+                           <div class="w-more">
+                              <span class="w-ctegory"><a href="{{path('app_portfolio_index') }}">Adobe Premiere</a></span>
+                              /
+                              <span class="w-date">15 Mar.
+                              2020</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="w-like">
+                              <span class="ion-ios-plus-outline"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!--/ Section Portfolio End /-->
+{# ********************************************* #}
+<!--/ Section Testimonials Star /-->
+<section class="testimonials">
+   <div class="testimonials paralax-mf bg-image" style="background-image: url(img/testimonial-bg.jpg)">
+      <div class="testimonial text-center">
+         <img src="img/abud.jpg" class="rounded-circle b-shadow-a" style="border-radius: 50%; border: 2px solid red; width:25%">
+         <p class="quote text-white">"Success is not a destination, it's a journey. I am committed to making the most of every opportunity, learning from my mistakes, and constantly improving myself. I will not let fear or doubt hold me back, instead I will trust in my hard work and determination. I am determined to turn my dreams into reality, and I know that with focus and effort, I will reach my goals and live a successful life."</p>
+         <p class="author text-white">Abdulrhman Alshalal</p>
+      </div>
+   </div>
+</section>
+{# ********************************************* #}
+<!--/ Section Blog Star /-->
+<section id="blog" class="blog-mf sect-pt4 route">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="title-box text-center">
+               <h3 class="title-a" >Blog</h3>
+               <p class="subtitle-a">A set of explanations for phone applications on platforms and use them on social media platforms</p>
+               <div class="line-mf"></div>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         {% for i in 1..3 %}    
+         <div class="col-md-4">
+            <div class="card card-blog">
+               <div class="card-img"><a href="{{path('app_blog_index')}}"><img src="{{ asset('blogImage/' ~ blogs[i].image) }}" alt="" class="img-fluid"></a></div>
+               <div class="card-body">
+                  <div class="card-category-box">
+                     <div class="card-category">
+                        <h6 class="category">{{blogs[i].category }}</h6>
+                     </div>
+                  </div>
+                  <h3 class="card-title">
+                     <a href="{{path('app_blog_index')}}" class="text-sm">{{blogs[i].title }}</a>
+                  </h3>
+                  <div class="align-baseline d-inline-block" style="width: 300px; height: 100px;">
+                     <blockquote>
+                        {% autoescape %}
+                        {{ blogs[i].description|striptags('<br>')|raw | slice(0, 195) }}
+                        {% endautoescape %} ...
+                        <br>
+                        <div class=" text-center">
+                           <a href="{{path('app_blog_index')}}" class="btn-serv genric-btn primary circle arrow"> Read More <span class="lnr lnr-arrow-right"></span></a>
+                        </div>
+                     </blockquote>
+                  </div>
+               </div>
+               <div class="card-footer">
+                  <div class="post-author">
+                     {# <a href="#">
+                     <img src="img/logo2.jpg" alt="" class="avatar rounded-circle">
+                     <span class="text-dark">Abdulrhman</span>
+                     </a> #}
+                     <div class="post-date">
+                        <span class="ion-ios-clock-outline text-primary"> {{ blogs[i].date ? blogs[i].date|date('Y-m-d  D H:i:s') : '' }}</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!--/ Section Blog End /-->
+<!--/ Section Blog Star /-->
+<section id="blog" class="blog-mf sect-pt4 route">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="title-box text-center">
+               
+            <!--/Social media  /-->
+            {#<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+            <div class="elfsight-app-59e5f5c4-007f-488b-9c7f-91b2cbb8eab1"></div>#}
+            <!--/ end Social Media/-->
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!--/ start elfsight  /-->
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-5c21f826-e7d4-4edd-9f8f-2e87eecd0c3d"></div>
+<!--/end elfsight  /-->
+
+{% endblock %}
